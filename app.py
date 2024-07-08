@@ -1,5 +1,5 @@
-import streamlit as st
 import requests
+import streamlit as st
 from together import Together
 
 def get_content(username):
@@ -24,14 +24,4 @@ def Roast(username,key):
         messages=[{"role": "user", "content": f"Roast a user named {username} based on this data {data}"}],
     )    
     return response.choices[0].message.content
-
-
-
-st.title('Welcome To GrillIt🔥')
-st.write('Made By [realhardik18](https://x.com/realhardik18) | [Support GrillIt](https://buymeacoffee.com/realhardik18)')
-username = st.text_input(label="Enter Reddit Username")
-
-if st.button("Submit"):    
-    if username:        
-        roast=Roast(username,'test')
-        st.write(roast)
+st.write('hello')
