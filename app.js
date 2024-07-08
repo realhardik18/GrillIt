@@ -10,7 +10,7 @@ async function getContent(username) {
             };
             user_data.push(postData);
         } catch (error) {
-            // Handle error
+            
         }
     }
     return user_data;
