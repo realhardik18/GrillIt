@@ -1,5 +1,4 @@
 import requests
-from creds import api_key
 from together import Together
 
 def get_content(username):
