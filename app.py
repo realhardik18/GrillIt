@@ -7,5 +7,5 @@ username = st.text_input(label="Enter Reddit Username")
 
 if st.button("Submit"):    
     if username:        
-        roast=Roast(username)
+        roast=Roast(username,st.secrets['API_KEY'])
         st.write(roast)

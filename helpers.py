@@ -15,9 +15,9 @@ def get_content(username):
             pass
     return user_data
 
-def Roast(username):    
+def Roast(username,key):    
     data=get_content(username=username)
-    client = Together(api_key=api_key)
+    client = Together(api_key=key)
     response = client.chat.completions.create(
         model="meta-llama/Llama-3-8b-chat-hf",
         messages=[{"role": "user", "content": f"Roast a user named {username} based on this data {data}"}],
