@@ -24,4 +24,5 @@ def Roast(username,key):
         messages=[{"role": "user", "content": f"Roast a user named {username} based on this data {data}"}],
     )    
     return response.choices[0].message.content
+st.write(get_content('realhardik18'))
 st.write(st.secrets['API_KEY'])
