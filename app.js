@@ -53,3 +53,41 @@ function copyToClipboard() {
         alert('No text to copy!');
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const fireContainer = document.querySelector('.fire-container');
+    const fireEmojis = ['🔥', '🔥', '🔥', '🔥', '🔥'];
+    
+    function createFireEmoji() {
+        const emoji = document.createElement('span');
+        emoji.textContent = fireEmojis[Math.floor(Math.random() * fireEmojis.length)];
+        emoji.classList.add('fire-emoji');
+        emoji.style.left = '-50px';
+        emoji.style.top = `${Math.random() * 100}%`;
+        emoji.style.animationDuration = `${5 + Math.random() * 5}s`;
+        fireContainer.appendChild(emoji);
+
+        setTimeout(() => {
+            emoji.remove();
+        }, 10000);
+    }
+
+    setInterval(createFireEmoji, 500);
+});
+
+function roastUser() {
+    const username = document.getElementById('username').value;
+    // Your existing roast logic here
+    // When the roast is ready:
+    document.querySelector('[x-data]').__x.$data.loading = false;
+    document.querySelector('[x-data]').__x.$data.showResponse = true;
+    document.querySelector('[x-data]').__x.$data.response = "Your roast text here";
+}
+
+function copyToClipboard() {
+    const responseText = document.querySelector('[x-data]').__x.$data.response;
+    navigator.clipboard.writeText(responseText).then(() => {
+        alert("Roasted text copied to clipboard!");
+    });
+}
+
